@@ -69,7 +69,7 @@ options:
 * opt.idleTimer (default: 10 ms)
 * opt.busyTimer (default: 500 ms)
 
-#### disconnect()
+### disconnect()
 
 ```
 wrkr.disconnect(callback);
@@ -197,10 +197,12 @@ Notes:
 
   DEBUG=wrkr* node ./example/example-mongodb.js
 
+
 ### Todo
 
 * middleware (once & cron)
-* storage-engines (postgres & rethinkdb)
+* cleanup system (remove/archive old events)
+* storage-engines (Postgres & Rethinkdb)
 * Promise callbacks?
 
 
@@ -210,10 +212,11 @@ Storage engines:
 
 * MongoDB <https://github.com/whyhankee/dbwrkr-mongodb>
 
+
 ## Changelog
 
-0.0.1
+v0.0.1
 * Fix devDependency issue
 
-0.0.0
+v0.0.0
 * Initial commit
