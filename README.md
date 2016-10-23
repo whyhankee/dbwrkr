@@ -18,6 +18,8 @@
 
 ## How does it work ?
 
+* Setup a wrkr object, see the API documentation
+
 ### To publish events you need to
 
 * wrkr.connect() to connect to the DBWorker storage
@@ -27,10 +29,10 @@
 
 * wrkr.connect() to connect to the DBWorker storage
 * wrkr.subscribe() to the events so the events will be collected in the designated queue
-* wrkr.startPolling() and start receiving your events
-* wrkr.publish() an event just because you also can
-* wrkr.retry() an event if something went wrong
-* wrkr.followUp() with events of your own in reply to other events
+* wrkr.startPolling() to start receiving your events
+* optional - wrkr.publish() an event just because you also can
+* optional - wrkr.retry() an event if something went wrong
+* optional - wrkr.followUp() with events of your own in reply to other events
 * wrkr.stopPolling() when you are done (signal handler?)
 
 See the `example/` directory for an example
