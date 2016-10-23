@@ -199,17 +199,13 @@ Notes:
 
 ### Todo
 
-* middlware
-  * once
-  * cron
-
-* storage-engines
-  * postgres
-  * rethinkdb
+* middleware (once & cron)
+* storage-engines (postgres & rethinkdb)
+* Promise callbacks?
 
 
 ### Links
 
-Storage:
+Storage engines:
 
-  MongoDB <https://github.com/whyhankee/dbwrkr-mongodb>
+* MongoDB <https://github.com/whyhankee/dbwrkr-mongodb>
