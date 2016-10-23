@@ -209,3 +209,11 @@ Notes:
 Storage engines:
 
 * MongoDB <https://github.com/whyhankee/dbwrkr-mongodb>
+
+## Changelog
+
+0.0.1
+* Fix devDependency issue
+
+0.0.0
+* Initial commit
