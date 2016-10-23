@@ -1,0 +1,28 @@
+{
+  "name": "dbwrkr",
+  "version": "0.0.0",
+  "description": "A eventing system for NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dbwrkr",
+    "wrkr",
+    "eventing"
+  ],
+  "dependencies": {
+    "debug": "2.2.0",
+    "flw": "0.0.14"
+  },
+  "devDependencies": {
+    "expect.js": "0.3.1",
+    "random-string": "0.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:whyhankee/dbwrkr.git"
+  },
+  "author": "Paul Wijhenke <paul@paulsplace.nl>",
+  "license": "MIT"
+}
