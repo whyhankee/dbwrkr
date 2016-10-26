@@ -23,6 +23,8 @@ wrkr.on('eventError', function (eventError) {
 
 
 
+
+
 // Start
 //
 return flw.series([
@@ -30,7 +32,6 @@ return flw.series([
   subscribeEvent,
   sendEvents,
   startPolling,
-  // disconnect, -> will exit the eventLoop  ^c to abort
 ], function (err) {
   if (err) throw err;
 });
@@ -40,6 +41,8 @@ function connect(c, cb) {
   console.log('connect');
   return wrkr.connect(cb);
 }
+
+
 // function disconnect(c, cb) {
 //   console.log('disconnect');
 //   return wrkr.disconnect(cb);
@@ -65,10 +68,10 @@ function sendEvents(c, cb) {
   return cb();
 
   function sendEvents() {
-    // publish our example event
     wrkr.publish({name: 'example_event'}, function (err, resultIds) {
-      console.log('published id : ', resultIds[0]);
+      if (err) throw err;
 
+      console.log('published id : ', resultIds[0]);
       return setTimeout(sendEvents, intervalMs);
     });
   }
