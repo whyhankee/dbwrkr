@@ -61,6 +61,8 @@ var wrkr = new wrkr.DBWrkr({
 
 ### connect()
 
+Connect to the backend storage engine
+
 ```
 wrkr.connect(options, callback);
 ```
@@ -69,7 +71,10 @@ options:
 * opt.idleTimer (default: 10 ms)
 * opt.busyTimer (default: 500 ms)
 
+
 ### disconnect()
+
+Disconnect from the backend storage engine
 
 ```
 wrkr.disconnect(callback);
@@ -77,11 +82,15 @@ wrkr.disconnect(callback);
 
 ### subscribe()
 
+Subscribe an event to a queue. When polling the handler will be called when this event arrives.
+
 ```
 wrkr.subscribe(eventName, queueName, handler, callback)
 ```
 
 ### unsubscribe()
+
+Unsubscribe and event from a queue. The handler will still be called for all the events are already in the queue. New events will no longer be queued.
 
 ```
 wrkr.unsubscribe(eventName, queueName, handler, callback)
@@ -91,7 +100,10 @@ Notes:
 * A handler is still required as there may still be events arriving.
 * Remove the unsubscribe line when all the remaining events are processed.
 
+
 ### subscriptions()
+
+Get a list of queues that are subscribed to the event.
 
 ```
 wrkr.subscriptions(eventName, (err, queues) => {
@@ -100,6 +112,8 @@ wrkr.subscriptions(eventName, (err, queues) => {
 ```
 
 ### publish()
+
+Publish a new event. Events will we created for each queue that is subscribed to the event.
 
 ```
 var events = [{
@@ -119,8 +133,7 @@ optional event properties:
 
 ### followUp()
 
-This will publish new event with the parent set as the current event.
-This will allow us to see how events are generated (introspection).
+FollowUp one event with another event. This will publish new event(s) with the parent set to the current event. This will help with the introspection system.
 
 ```
 var newEvent = {
@@ -134,8 +147,7 @@ wrkr.followUp(event, newEvent, (err, eventIds) => {
 
 ### retry()
 
-This will create a new (retry) event with the data of the current event.
-Will also increase the retryCount on the new event.
+Create a new retry event with the data of the current event, Will increase the retryCount on the new event.
 
 ```
 wrkr.retry(event, when, (err, eventIds) => {
@@ -149,6 +161,8 @@ Notes:
 
 ### find()
 
+Find events in the system.
+
 ```
 var criteria = {
   name: eventName,
@@ -160,6 +174,8 @@ wrkr.find(criteria, (err, events) => {
 ```
 
 ### remove()
+
+Remove events in the system.
 
 ```
 var criteria = {
@@ -173,11 +189,21 @@ wrkr.remove(criteria, (err, events) => {
 
 ### startPolling()
 
+Starts the polling mechanism.
+* Will get all events from all queues the are subscribed to.
+
+
 ```
 wrkr.startPolling(callback);
 ```
 
+Note:
+* Even when a process has subscribed to one event in a queue it will still receive *all* events from that qeuue
+* Processing of events in queues should be in order (on the 'when' field).
+
 ### stopPolling()
+
+Stops the polling mechanism. The callback will be called when the current event is processed.
 
 ```
 wrkr.stopPolling(callback);
@@ -202,6 +228,7 @@ Notes:
 
 * middleware (once & cron)
 * cleanup system (remove/archive old events)
+* in-memory-storage engine for running the tests
 * storage-engines (Postgres & Rethinkdb)
 * Promise callbacks?
 
