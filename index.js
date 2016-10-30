@@ -7,3 +7,4 @@ module.exports = {
   DBWrkr: DBWrkr,
   tests: tests,
 };
+
