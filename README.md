@@ -216,7 +216,7 @@ Notes:
 
 * The examples directory contains an example for use with mongodb. You might need to link the dbwrkr-mongodb package though.
 
-* The dbwrk pcakage contains the tests. They are called from the storage engine, see the mongodb storage engine for more info.
+* The dbwrk pcakage contains the tests. They are currently called from the storage engine, see the mongodb storage engine for more info.
 
 
 ### Debugging
@@ -224,12 +224,33 @@ Notes:
   DEBUG=wrkr* node ./example/example-mongodb.js
 
 
+### Event properties
+
+```
+id          Unique id of the event                          String  (indexed)
+name        Name of the event                               String  (indexed)
+queue       Name of the queue                               String  (indexed)
+tid         Target id of the event (eg. userId/orderId)     String
+payload     Object with extra properties for the event
+parent      Id of the parent event (in case of a followUp)  String
+created     Date created                                    Date
+when        Date when the event should be processed         Date (sparse indexed)
+done        Date when the event was processed               Date (sparse indexed)
+retryCount  in case of an error followUp, the retryCount    Number
+```
+
+### Doing
+
+* In-memory-storage engine for running the tests on DBWrkr itself
+* Storage-engine: Postgres
+
+Trying to implement with Waterline, would enable a widely used set of databases.
+
 ### Todo
 
-* middleware (once & cron)
-* cleanup system (remove/archive old events)
-* in-memory-storage engine for running the tests
-* storage-engines (Postgres & Rethinkdb)
+* Middleware (once & cron)
+* Cleanup system (remove/archive old events)
+* Storage-engine: Rethinkdb
 * Promise callbacks?
 
 
