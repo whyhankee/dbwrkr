@@ -263,6 +263,9 @@ Storage engines:
 
 ## Changelog
 
+v0.0.2
+* events are not emitted on the dbwrkr eventEmitter
+
 v0.0.1
 * Fix devDependency issue
 
