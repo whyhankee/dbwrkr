@@ -278,6 +278,7 @@ Trying to implement with Waterline, would enable a widely used set of databases.
 Storage engines:
 
 * MongoDB <https://github.com/whyhankee/dbwrkr-mongodb>
+* RethinkDB <https://github.com/whyhankee/dbwrkr-rethinkdb>
 
 
 ## Changelog
