@@ -28,11 +28,11 @@
 ### To process events to you need to:
 
 * wrkr.connect() to connect to the DBWorker storage
+* register your event handler like wrkr.on('event', eventHandler);
 * wrkr.subscribe() to the events so the events will be collected in the designated queue
 * wrkr.startPolling() to start receiving your events
-* optional - wrkr.publish() an event just because you also can
 * optional - wrkr.retry() an event if something went wrong
-* optional - wrkr.followUp() with events of your own in reply to other events
+* optional - wrkr.followUp() with events of your own in response to processed events
 * wrkr.stopPolling() when you are done (signal handler?)
 
 See the `example/` directory for an example
@@ -57,7 +57,21 @@ var wrkrBackend = new DBWrkrMongodb({
 var wrkr = new wrkr.DBWrkr({
 	storage: wrkrBackend
 });
+
+wrkr.on('event', eventHandler);
+wrkr.on('error', eventErrorHandler);
+
+function eventHander(event, done) {
+  console.log('received event', event);
+  return done();
+}
+
+function eventErrorHander(err) {
+  console.log('error:', err.toString());
+}
 ```
+
+
 
 ### connect()
 
@@ -190,12 +204,17 @@ wrkr.remove(criteria, (err, events) => {
 ### startPolling()
 
 Starts the polling mechanism.
-* Will get all events from all queues the are subscribed to.
+* Will process events from the given queue.
 
 
 ```
-wrkr.startPolling(callback);
+wrkr.startPolling(queue, [options], callback);
 ```
+
+Options:
+* busyTimer (default: 10)       - quick fetch next item
+* idleTimer (default: 500);     - poll-timer when idle
+
 
 Note:
 * Even when a process has subscribed to one event in a queue it will still receive *all* events from that qeuue
@@ -264,7 +283,7 @@ Storage engines:
 ## Changelog
 
 v0.0.2
-* events are not emitted on the dbwrkr eventEmitter
+* events are now emitted on the dbwrkr eventEmitter
 
 v0.0.1
 * Fix devDependency issue
