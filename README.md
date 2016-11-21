@@ -6,15 +6,13 @@
 
 * This way, by reacting to events you create loose coupling, little components that are easy to maintain, deploy and removed.
 
-* Easy storage-plugin system for any storage devices like MongoDB, Postgres, Redis, etc.
+* Easy storage-plugin system for any storage devices like MongoDB, RethinkDB, Postgres, Redis, etc.
 
 * It's not build for performance, it's for flexibility and introspection.
 
 ### Current state
 
 * **Disclaimer: This is *very alpha* everything could happen**.
-
-* DBWrkr currently only has one backend: <https://github.com/whyhankee/dbwrkr-mongodb>.
 
 ## How does it work ?
 
@@ -70,7 +68,6 @@ function eventErrorHander(err) {
   console.log('error:', err.toString());
 }
 ```
-
 
 
 ### connect()
@@ -258,18 +255,13 @@ done        Date when the event was processed               Date (sparse indexed
 retryCount  in case of an error followUp, the retryCount    Number
 ```
 
-### Doing
-
-* In-memory-storage engine for running the tests on DBWrkr itself
-* Storage-engine: Postgres
-
-Trying to implement with Waterline, would enable a widely used set of databases.
 
 ### Todo
 
+* In-memory-storage engine for running the tests on DBWrkr itself
+* Storage-engine: Postgres
 * Middleware (once & cron)
 * Cleanup system (remove/archive old events)
-* Storage-engine: Rethinkdb
 * Promise callbacks?
 
 
