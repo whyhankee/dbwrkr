@@ -275,6 +275,9 @@ Storage engines:
 
 ## Changelog
 
+v0.0.3 - Upcoming
+* Removed some es6 code 
+
 v0.0.2
 * events are now emitted on the dbwrkr eventEmitter
 
