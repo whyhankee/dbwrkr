@@ -280,7 +280,7 @@ Storage engines:
 
 ## Changelog
 
-v0.0.3 - Upcoming
+v0.0.3
 * Removed some es6 code 
 
 v0.0.2
