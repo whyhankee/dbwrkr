@@ -17,7 +17,7 @@
 ### Storage engines
 
 * MongoDB [![Build Status](https://travis-ci.org/whyhankee/dbwrkr-mongodb.svg?branch=master)](https://travis-ci.org/whyhankee/dbwrkr-mongodb)
-
+* RethinkDB [![Build Status](https://travis-ci.org/whyhankee/dbwrkr-rethinkdb.svg?branch=master)](https://travis-ci.org/whyhankee/dbwrkr-rethinkdb)
 
 ## How does it work ?
 
