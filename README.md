@@ -14,6 +14,11 @@
 
 * **Disclaimer: This is *very alpha* everything could happen**.
 
+### Storage engines
+
+* MongoDB [![Build Status](https://travis-ci.org/whyhankee/dbwrkr-mongodb.svg?branch=master)](https://travis-ci.org/whyhankee/dbwrkr-mongodb)
+
+
 ## How does it work ?
 
 * Setup a wrkr object, see the API documentation
