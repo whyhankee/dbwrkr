@@ -101,7 +101,7 @@ wrkr.disconnect(callback);
 Subscribe an event to a queue. When polling the handler will be called when this event arrives.
 
 ```
-wrkr.subscribe(eventName, queueName, handler, callback)
+wrkr.subscribe(eventName, queueName, callback)
 ```
 
 ### unsubscribe()
@@ -109,7 +109,7 @@ wrkr.subscribe(eventName, queueName, handler, callback)
 Unsubscribe and event from a queue. The handler will still be called for all the events are already in the queue. New events will no longer be queued.
 
 ```
-wrkr.unsubscribe(eventName, queueName, handler, callback)
+wrkr.unsubscribe(eventName, queueName, callback)
 ```
 
 Notes:
