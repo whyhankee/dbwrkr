@@ -84,8 +84,8 @@ wrkr.connect(options, callback);
 ```
 
 options:
-* opt.idleTimer (default: 10 ms)
-* opt.busyTimer (default: 500 ms)
+* opt.idleTimer (default: 500 ms, next timer used when no event was ready)
+* opt.busyTimer (default: 10 ms, timer for quick-fetching the next item)
 
 
 ### disconnect()
