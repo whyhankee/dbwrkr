@@ -31,7 +31,7 @@
 ### To process events to you need to:
 
 * wrkr.connect() to connect to the DBWorker storage
-* register your event handler like wrkr.on('event', eventHandler);
+* register your event handler, wrkr.on('event', eventHandler);
 * wrkr.subscribe() to the events so the events will be collected in the designated queue
 * wrkr.startPolling() to start receiving your events
 * optional - wrkr.retry() an event if something went wrong
