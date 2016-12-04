@@ -280,6 +280,9 @@ Storage engines:
 
 ## Changelog
 
+v0.0.4 (upcoming)
+* Support for finding multiple ids in one call
+
 v0.0.3
 * Removed some es6 code 
 
