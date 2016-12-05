@@ -282,7 +282,7 @@ Storage engines:
 
 ## Changelog
 
-v0.0.4 (upcoming)
+v0.0.4
 * Add to Travis-CI
 * Use mongodb storage for self-testing
 * Support for finding multiple ids in one call
