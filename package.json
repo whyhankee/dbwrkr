@@ -4,11 +4,13 @@
   "description": "A eventing system for NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "eslint ."
-  },
+    "test": "node ./test/dbwrkr-mongodb-tests.js && eslint ."
+},
   "keywords": [
     "dbwrkr",
     "wrkr",
+    "job",
+    "queue",
     "eventing"
   ],
   "dependencies": {
@@ -18,6 +20,7 @@
     "random-string": "0.1.2"
   },
   "devDependencies": {
+    "dbwrkr-mongodb": "0.0.5",
     "eslint": "<3.0.0"
   },
   "repository": {
