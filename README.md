@@ -12,6 +12,8 @@
 
 ### Current state
 
+[![Build Status](https://travis-ci.org/whyhankee/dbwrkr.svg?branch=master)](https://travis-ci.org/whyhankee/dbwrkr)
+
 * **Disclaimer: This is *very alpha* everything could happen**.
 
 ### Storage engines
