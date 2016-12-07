@@ -1,5 +1,5 @@
 /* eslint no-console: 0 */
-var DBWrkr = require('dbwrkr').DBWrkr;
+var DBWrkr = require('../index').DBWrkr;
 var DBWrkrMongo = require('dbwrkr-mongodb');
 var flw = require('flw');
 
