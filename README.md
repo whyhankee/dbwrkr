@@ -18,8 +18,10 @@
 
 ### Storage engines
 
-* MongoDB [![Build Status](https://travis-ci.org/whyhankee/dbwrkr-mongodb.svg?branch=master)](https://travis-ci.org/whyhankee/dbwrkr-mongodb)
-* RethinkDB [![Build Status](https://travis-ci.org/whyhankee/dbwrkr-rethinkdb.svg?branch=master)](https://travis-ci.org/whyhankee/dbwrkr-rethinkdb)
+Backend | Link | Status
+:------- | :------ | :------------------
+MongoDB | <https://github.com/whyhankee/dbwrkr-mongodb> | [![Build Status](https://travis-ci.org/whyhankee/dbwrkr-mongodb.svg?branch=master)](https://travis-ci.org/whyhankee/dbwrkr-mongodb)
+RethinkDB | <https://github.com/whyhankee/dbwrkr-rethinkdb> | [![Build Status](https://travis-ci.org/whyhankee/dbwrkr-rethinkdb.svg?branch=master)](https://travis-ci.org/whyhankee/dbwrkr-rethinkdb)
 
 ## How does it work ?
 
@@ -237,8 +239,7 @@ wrkr.stopPolling(callback);
 
 Notes:
 
-* The examples directory contains an example for use with mongodb. You might need to link the dbwrkr-mongodb package though.
-
+* The examples directory contains an example for use with mongodb.
 * The dbwrk pcakage contains the tests. They are currently called from the storage engine, see the mongodb storage engine for more info.
 
 
@@ -272,14 +273,6 @@ retryCount  in case of an error followUp, the retryCount    Number
 * Promise callbacks?
 
 
-### Links
-
-Storage engines:
-
-* MongoDB <https://github.com/whyhankee/dbwrkr-mongodb>
-* RethinkDB <https://github.com/whyhankee/dbwrkr-rethinkdb>
-
-
 ## Changelog
 
 v0.0.4
@@ -288,7 +281,7 @@ v0.0.4
 * Support for finding multiple ids in one call
 
 v0.0.3
-* Removed some es6 code 
+* Removed some es6 code
 
 v0.0.2
 * events are now emitted on the dbwrkr eventEmitter
