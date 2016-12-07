@@ -3,7 +3,7 @@
 
   "env": {
     "es6": false,
-    "node": true,
+    "node": true
   },
 
   "rules": {
@@ -12,6 +12,7 @@
     "comma-dangle":           ["error", "only-multiline"],
     "object-curly-spacing":   ["error", "never"],
     "space-in-parens":        ["error", "never"],
+    "no-trailing-spaces":     ["error"],
     "linebreak-style":        [ 2, "unix" ],
     "semi":                   ["error", "always"]
   }
