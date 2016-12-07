@@ -264,10 +264,8 @@ retryCount  in case of an error followUp, the retryCount    Number
 ```
 
 
-### Todo
+## Todo
 
-* In-memory-storage engine for running the tests on DBWrkr itself
-* Storage-engine: Postgres
 * Middleware (once & cron)
 * Cleanup system (remove/archive old events)
 * Promise callbacks?
