@@ -14,10 +14,10 @@
     "eventing"
   ],
   "dependencies": {
-    "debug": "2.2.0",
-    "flw": "0.0.16",
+    "debug": "2.6.8",
+    "flw": "0.0.18",
     "expect.js": "0.3.1",
-    "random-string": "0.1.2"
+    "random-string": "0.2.0"
   },
   "devDependencies": {
     "dbwrkr-mongodb": "0.0.5",
