@@ -1,6 +1,6 @@
 'use strict';
-var DBWrkr = require('./lib/dbwrkr');
-var tests = require('./lib/dbwrkr-tests');
+const DBWrkr = require('./lib/dbwrkr');
+const tests = require('./lib/dbwrkr-tests');
 
 
 module.exports = {

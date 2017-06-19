@@ -30,17 +30,18 @@ RethinkDB | <https://github.com/whyhankee/dbwrkr-rethinkdb> | [![Build Status](h
 ### To publish events you need to
 
 * wrkr.connect() to connect to the DBWorker storage
-* wrkr.publish() an event just because you can
+* wrkr.publish() an event
 
 ### To process events to you need to:
 
 * wrkr.connect() to connect to the DBWorker storage
-* register your event handler, wrkr.on('event', eventHandler);
-* wrkr.subscribe() to the events so the events will be collected in the designated queue
-* wrkr.startPolling() to start receiving your events
+* wrkr.subscribe() events to a queue
+* use wrkr.queue() to get an object linking to your queue
+* use queue.on('event', onEvent) to setup your eventHandler (receives the events)
+* usse queue.startPolling() to start polling for your events
 * optional - wrkr.retry() an event if something went wrong
 * optional - wrkr.followUp() with events of your own in response to processed events
-* wrkr.stopPolling() when you are done (signal handler?)
+* queue.stopPolling() when you are done (signal handler?)
 
 See the `example/` directory for an example
 
@@ -58,24 +59,12 @@ var wrkr = require('dbwrkr');
 var DBWrkrMongodb = require('dbwrkr-mongodb');
 
 var wrkrBackend = new DBWrkrMongodb({
-  dbName: 'wrkr_blah'
+  dbName: 'dbwrkr'
 });
 
 var wrkr = new wrkr.DBWrkr({
 	storage: wrkrBackend
 });
-
-wrkr.on('event', eventHandler);
-wrkr.on('error', eventErrorHandler);
-
-function eventHander(event, done) {
-  console.log('received event', event);
-  return done();
-}
-
-function eventErrorHander(err) {
-  console.log('error:', err.toString());
-}
 ```
 
 
@@ -102,7 +91,8 @@ wrkr.disconnect(callback);
 
 ### subscribe()
 
-Subscribe an event to a queue. When polling the handler will be called when this event arrives.
+Subscribe an event to a queue.
+When polling the handler will be called when this event arrives.
 
 ```
 wrkr.subscribe(eventName, queueName, callback)
@@ -110,7 +100,9 @@ wrkr.subscribe(eventName, queueName, callback)
 
 ### unsubscribe()
 
-Unsubscribe and event from a queue. The handler will still be called for all the events are already in the queue. New events will no longer be queued.
+Unsubscribe and event from a queue.
+The handler will still be called for all the events are already in the queue.
+New events will no longer be queued.
 
 ```
 wrkr.unsubscribe(eventName, queueName, callback)
