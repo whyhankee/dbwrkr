@@ -2,7 +2,7 @@
 
 ### What?
 
-* A pub-sub system would make it easy for multiple processes to communicate with each other by sending events. Other processes can pickup the events, do what need to be done (and followUp by sending another event).
+* A pub-sub system makes it easy for multiple processes to communicate with each other by sending events. Other processes can pickup the events, do what need to be done (and followUp by sending another event).
 
 * This way, by reacting to events you create loose coupling, little components that are easy to maintain, deploy and removed.
 
@@ -36,15 +36,12 @@ RethinkDB | <https://github.com/whyhankee/dbwrkr-rethinkdb> | [![Build Status](h
 
 * wrkr.connect() to connect to the DBWorker storage
 * wrkr.subscribe() events to a queue
-* use wrkr.queue() to get an object linking to your queue
-* use queue.on('event', onEvent) to setup your eventHandler (receives the events)
-* usse queue.startPolling() to start polling for your events
+* use wrkr.queue() to get an object representing your queue
+* use queue.on('event', fn) to setup your eventHandler (receives the events)
+* use queue.startPolling() to start polling for your events
 * optional - wrkr.retry() an event if something went wrong
 * optional - wrkr.followUp() with events of your own in response to processed events
 * queue.stopPolling() when you are done (signal handler?)
-
-See the `example/` directory for an example
-
 
 ## API
 
@@ -58,21 +55,23 @@ See the `example/` directory for an example
 var wrkr = require('dbwrkr');
 var DBWrkrMongodb = require('dbwrkr-mongodb');
 
-var wrkrBackend = new DBWrkrMongodb({
-  dbName: 'dbwrkr'
-});
-
 var wrkr = new wrkr.DBWrkr({
-	storage: wrkrBackend
+  storage: new DBWrkrMongodb({
+    dbName: 'dbwrkr'
+  })
 });
 ```
 
 
-### connect()
+### connect(options, callback)
 
 Connect to the backend storage engine
 
 ```
+const options = {
+  idleTimer: 500,
+  busyTimer: 10,
+};
 wrkr.connect(options, callback);
 ```
 
@@ -81,7 +80,7 @@ options:
 * opt.busyTimer (default: 10 ms, timer for quick-fetching the next item)
 
 
-### disconnect()
+### disconnect(callback)
 
 Disconnect from the backend storage engine
 
@@ -89,19 +88,18 @@ Disconnect from the backend storage engine
 wrkr.disconnect(callback);
 ```
 
-### subscribe()
+### subscribe(eventName, queueName, callback)
 
 Subscribe an event to a queue.
-When polling the handler will be called when this event arrives.
+The queue-handler will be called when this event arrives.
 
 ```
 wrkr.subscribe(eventName, queueName, callback)
 ```
 
-### unsubscribe()
+### unsubscribe(eventName, queueName, callback)
 
-Unsubscribe and event from a queue.
-The handler will still be called for all the events are already in the queue.
+Unsubscribe an event from a queue.
 New events will no longer be queued.
 
 ```
@@ -109,11 +107,11 @@ wrkr.unsubscribe(eventName, queueName, callback)
 ```
 
 Notes:
-* A handler is still required as there may still be events arriving.
+* A handler is still required as there may still be (previously published) events arriving.
 * Remove the unsubscribe line when all the remaining events are processed.
 
 
-### subscriptions()
+### subscriptions(eventName)
 
 Get a list of queues that are subscribed to the event.
 
@@ -123,7 +121,7 @@ wrkr.subscriptions(eventName, (err, queues) => {
 })
 ```
 
-### publish()
+### publish(events, callback)
 
 Publish a new event. Events will we created for each queue that is subscribed to the event.
 
@@ -143,7 +141,7 @@ optional event properties:
 * payload: object with extra information
 
 
-### followUp()
+### followUp(originalEvent, newEvent, callback)
 
 FollowUp one event with another event. This will publish new event(s) with the parent set to the current event. This will help with the introspection system.
 
@@ -157,9 +155,10 @@ wrkr.followUp(event, newEvent, (err, eventIds) => {
 })
 ```
 
-### retry()
+### retry(originalEvent, newEvent, callback)
 
-Create a new retry event with the data of the current event, Will increase the retryCount on the new event.
+Create a new retry event with the data of the current event also increasing the retryCount on the new event.
+When the retryCount becomes >= 20, an error will be returned.
 
 ```
 wrkr.retry(event, when, (err, eventIds) => {
@@ -171,7 +170,7 @@ Notes:
 * the `when` argument is optional. The default (crappy) algorithm will increase the retry-seconds until it reaches 20 (in about 57 hours)
 * retry() will callback an error when retryCount reaches 20
 
-### find()
+### find(findSpec, callback)
 
 Find events in the system.
 
@@ -185,7 +184,7 @@ wrkr.find(criteria, (err, events) => {
 })
 ```
 
-### remove()
+### remove(eventSpec, callback)
 
 Remove events in the system.
 
@@ -199,14 +198,14 @@ wrkr.remove(criteria, (err, events) => {
 })
 ```
 
-### startPolling()
+### queue.startPolling()
 
-Starts the polling mechanism.
+Starts the polling mechanism on the given queue.
 * Will process events from the given queue.
 
 
 ```
-wrkr.startPolling(queue, [options], callback);
+queue.startPolling([options], callback);
 ```
 
 Options:
@@ -231,7 +230,6 @@ wrkr.stopPolling(callback);
 
 Notes:
 
-* The examples directory contains an example for use with mongodb.
 * The dbwrk pcakage contains the tests. They are currently called from the storage engine, see the mongodb storage engine for more info.
 
 
