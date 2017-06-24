@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./test/dbwrkr-mongodb-tests.js && eslint ."
-},
+  },
   "keywords": [
     "dbwrkr",
     "wrkr",
@@ -15,8 +15,9 @@
   ],
   "dependencies": {
     "debug": "2.6.8",
-    "flw": "0.0.18",
     "expect.js": "0.3.1",
+    "flw": "0.0.18",
+    "lru-cache": "4.1.1",
     "random-string": "0.2.0"
   },
   "devDependencies": {
