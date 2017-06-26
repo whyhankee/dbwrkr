@@ -21,7 +21,7 @@
     "random-string": "0.2.0"
   },
   "devDependencies": {
-    "dbwrkr-mongodb": "0.0.5",
+    "dbwrkr-mongodb": "git://github.com/whyhankee/dbwrkr-mongodb.git",
     "eslint": "4.0.0"
   },
   "repository": {
