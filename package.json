@@ -4,7 +4,8 @@
   "description": "A eventing system for NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "node ./test/dbwrkr-mongodb-tests.js && eslint ."
+    "test": "node ./test/dbwrkr-mongodb-tests.js && eslint .",
+    "tdd": "nodemon ./test/dbwrkr-mongodb-tests.js"
   },
   "keywords": [
     "dbwrkr",
@@ -22,7 +23,9 @@
   },
   "devDependencies": {
     "dbwrkr-mongodb": "git://github.com/whyhankee/dbwrkr-mongodb.git",
-    "eslint": "4.0.0"
+    "eslint": "4.0.0",
+    "nodemon": "1.11.0",
+    "tape": "4.7.0"
   },
   "repository": {
     "type": "git",
