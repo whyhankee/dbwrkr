@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./test/dbwrkr-mongodb-tests.js && eslint .",
+    "coverage": "istanbul cover test/dbwrkr-mongodb-tests.js",
     "tdd": "nodemon ./test/dbwrkr-mongodb-tests.js"
   },
   "keywords": [
@@ -24,6 +25,7 @@
   "devDependencies": {
     "dbwrkr-mongodb": "git://github.com/whyhankee/dbwrkr-mongodb.git",
     "eslint": "4.0.0",
+    "istanbul": "0.4.5",
     "nodemon": "1.11.0",
     "tape": "4.7.0"
   },

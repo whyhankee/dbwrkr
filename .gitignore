@@ -1,5 +1,7 @@
-node_modules/
-out/
 .vscode/
+
+node_modules/
+coverage/
+out/
 
 npm-debug.log
