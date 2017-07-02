@@ -24,6 +24,7 @@
     "random-string": "0.2.0"
   },
   "devDependencies": {
+    "coveralls": "2.13.1",
     "dbwrkr-mongodb": "git://github.com/whyhankee/dbwrkr-mongodb.git",
     "eslint": "4.0.0",
     "istanbul": "0.4.5",
