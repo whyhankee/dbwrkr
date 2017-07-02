@@ -7,21 +7,24 @@
     "test": "node ./test/dbwrkr-mongodb-tests.js && eslint .",
     "tdd": "nodemon ./test/dbwrkr-mongodb-tests.js",
     "coverage": "istanbul cover test/dbwrkr-mongodb-tests.js",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+    "coveralls": "coveralls < ./coverage/lcov.info"
   },
   "keywords": [
+    "nodejs",
     "dbwrkr",
     "wrkr",
+    "distributed",
     "job",
+    "jobqueue",
     "queue",
-    "eventing"
+    "persistent",
+    "message",
+    "event"
   ],
   "dependencies": {
     "debug": "2.6.8",
-    "expect.js": "0.3.1",
     "flw": "0.0.18",
-    "lru-cache": "4.1.1",
-    "random-string": "0.2.0"
+    "lru-cache": "4.1.1"
   },
   "devDependencies": {
     "coveralls": "2.13.1",
@@ -29,6 +32,7 @@
     "eslint": "4.0.0",
     "istanbul": "0.4.5",
     "nodemon": "1.11.0",
+    "random-string": "0.2.0",
     "tape": "4.7.0"
   },
   "repository": {
