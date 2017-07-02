@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./test/dbwrkr-mongodb-tests.js && eslint .",
+    "tdd": "nodemon ./test/dbwrkr-mongodb-tests.js",
     "coverage": "istanbul cover test/dbwrkr-mongodb-tests.js",
-    "tdd": "nodemon ./test/dbwrkr-mongodb-tests.js"
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "keywords": [
     "dbwrkr",
