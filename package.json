@@ -24,16 +24,16 @@
   "dependencies": {
     "debug": "2.6.8",
     "flw": "0.0.18",
-    "lru-cache": "4.1.1"
+    "lru-cache": "4.1.1",
+    "random-string": "0.2.0",
+    "tape": "4.7.0"
   },
   "devDependencies": {
     "coveralls": "2.13.1",
     "dbwrkr-mongodb": "git://github.com/whyhankee/dbwrkr-mongodb.git",
     "eslint": "4.0.0",
     "istanbul": "0.4.5",
-    "nodemon": "1.11.0",
-    "random-string": "0.2.0",
-    "tape": "4.7.0"
+    "nodemon": "1.11.0"
   },
   "repository": {
     "type": "git",
