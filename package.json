@@ -1,7 +1,7 @@
 {
   "name": "dbwrkr",
-  "version": "0.0.4",
-  "description": "A eventing system for NodeJS",
+  "version": "0.0.5",
+  "description": "A pub-sub-scheduler system for NodeJS",
   "main": "index.js",
   "scripts": {
     "test": "node ./test/dbwrkr-mongodb-tests.js && eslint .",

@@ -266,6 +266,12 @@ retryCount  in case of an error followUp, the retryCount    Number
 
 ## Changelog
 
+v0.0.5
+* Update documentation
+* Use coveralls for coverage testing
+* Some API changes, mostly around wrkr.queue() method so we can use more than 1 queue per process
+* Rewrite tests using tape
+
 v0.0.4
 * Add to Travis-CI
 * Use mongodb storage for self-testing
