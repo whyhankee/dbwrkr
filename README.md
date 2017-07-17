@@ -266,6 +266,9 @@ retryCount  in case of an error followUp, the retryCount    Number
 
 ## Changelog
 
+v0.0.6
+* dbwrkr.queue() - opt argument is now optional
+
 v0.0.5
 * Update documentation
 * Use coveralls for coverage testing
