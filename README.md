@@ -267,6 +267,7 @@ retryCount  in case of an error followUp, the retryCount    Number
 ## Changelog
 
 v0.0.7 (upcoming)
+* Update dependencies (debug, tape, eslint)
 * Map field (id, parent, tid) types to string, gives cleaner cross-db compatibility.
 * Fixed benchmarks in tests
 * DBWrkr.queue() - fix argument assert

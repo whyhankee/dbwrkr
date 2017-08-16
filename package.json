@@ -22,16 +22,16 @@
     "event"
   ],
   "dependencies": {
-    "debug": "2.6.8",
+    "debug": "3.0.0",
     "flw": "0.0.18",
     "lru-cache": "4.1.1",
     "random-string": "0.2.0",
-    "tape": "4.7.0"
+    "tape": "4.8.0"
   },
   "devDependencies": {
     "coveralls": "2.13.1",
     "dbwrkr-mongodb": "git://github.com/whyhankee/dbwrkr-mongodb.git",
-    "eslint": "4.0.0",
+    "eslint": "4.4.1",
     "istanbul": "0.4.5",
     "nodemon": "1.11.0"
   },
