@@ -266,6 +266,12 @@ retryCount  in case of an error followUp, the retryCount    Number
 
 ## Changelog
 
+v0.0.7 (upcoming)
+* Map field (id, parent, tid) types to string, gives cleaner cross-db compatibility.
+* Fixed benchmarks in tests
+* DBWrkr.queue() - fix argument assert
+* Tinkering on debug() output
+
 v0.0.6
 * dbwrkr.queue() - opt argument is now optional
 
