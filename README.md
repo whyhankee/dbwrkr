@@ -266,6 +266,9 @@ retryCount  in case of an error followUp, the retryCount    Number
 
 ## Changelog
 
+v0.0.8
+* fix: Invalid ‘error’ emit from __processNext
+
 v0.0.7
 * Update dependencies (debug, tape, eslint)
 * Map field (id, parent, tid) types to string, gives cleaner cross-db compatibility.
