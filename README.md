@@ -266,6 +266,9 @@ retryCount  in case of an error followUp, the retryCount    Number
 
 ## Changelog
 
+vNext
+* Add q.statistics() to retrieve polling status info
+
 v0.0.8
 * fix: Invalid ‘error’ emit from __processNext
 
