@@ -1,6 +1,6 @@
 {
   "name": "dbwrkr",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A pub-sub-scheduler system for NodeJS",
   "main": "index.js",
   "scripts": {
