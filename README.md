@@ -266,7 +266,7 @@ retryCount  in case of an error followUp, the retryCount    Number
 
 ## Changelog
 
-vNext
+v0.0.10
 * Statistics: No not overwrite .lastEvent* with undefined
 
 v0.0.9
