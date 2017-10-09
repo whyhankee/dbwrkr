@@ -266,6 +266,9 @@ retryCount  in case of an error followUp, the retryCount    Number
 
 ## Changelog
 
+vNext
+* Statistics: No not overwrite .lastEvent* with undefined
+
 v0.0.9
 * Add q.statistics() to retrieve polling status info
 
