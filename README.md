@@ -266,7 +266,7 @@ retryCount  in case of an error followUp, the retryCount    Number
 
 ## Changelog
 
-vNext
+v0.0.11
 * Statistics: Also store lastEventName/Tid
 
 v0.0.10
