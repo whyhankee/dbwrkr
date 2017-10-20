@@ -28,6 +28,7 @@ Backend | Link | Status
 :------- | :------ | :------------------
 MongoDB | <https://github.com/whyhankee/dbwrkr-mongodb> | [![Build Status](https://travis-ci.org/whyhankee/dbwrkr-mongodb.svg?branch=master)](https://travis-ci.org/whyhankee/dbwrkr-mongodb)
 RethinkDB | <https://github.com/whyhankee/dbwrkr-rethinkdb> | [![Build Status](https://travis-ci.org/whyhankee/dbwrkr-rethinkdb.svg?branch=master)](https://travis-ci.org/whyhankee/dbwrkr-rethinkdb)
+PostgreSQL | <https://github.com/HPieters/dbwrkr-pg> | [![Build Status](https://travis-ci.org/HPieters/dbwrkr-pg.svg?branch=master)](https://travis-ci.org/HPieters/dbwrkr-pg)
 
 
 ## Installation
